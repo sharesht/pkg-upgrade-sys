@@ -5,6 +5,9 @@
 	<body>
 		<form action='lxc_testweek.php' method='post'>
 			<input type='submit' name='submit1' value='List Upgradable Packages'>
+				<?php
+					include("checkupgradetw5.php");
+				?>
 		</form>
 		<table border="1" align="center">
 			<tr>
@@ -40,10 +43,10 @@
 							}
 			echo "<tr align='center'><td align='Center'><input type='submit' name='submit2' value='Display Selected'></td>";
 			include("checkbox_value.php");
-			echo "<td></td><td align='Center'><input type='submit' name='submit3' value='Ugrade Selected'></td>";
-                        #include("upgradeselected.php");
+			echo "<td></td><td align='Center'><input type='submit' name='submit3' value='Upgrade Selected'></td>";
+                        include("upgradeselectedtw5.php");
 			echo "<td></td><td align='Center'><input type='submit' name='submit4' value='Upgrade All'></td></tr></br>";
-			#include("upgradeall.php");
+			include("upgradealltw5.php");
 			echo "</form>";
 					}
 		else {

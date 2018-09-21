@@ -1,4 +1,5 @@
 <?php
-
-	shell_exec=("lxc-attach DB -- bash /root/upgradeall.sh");
+ 	if(isset($_POST['submit4'])){
+		shell_exec("sudo lxc-attach DB -- bash /root/upgradeallDB.sh");
+	}
 ?>

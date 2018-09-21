@@ -13,7 +13,7 @@
 		foreach($_POST['Pkg_Names'] as $selected) {
 		
 			echo "<p>".$selected."</p>";
-			shell_exec=("lxc-attach DB -- bash /root/upgradeselected.sh" . $selected);
+			shell_exec("sudo lxc-attach DB -- bash /root/upgradeselectedDB.sh". " " . $selected);
 			}
 		}
 	else{
