@@ -14,10 +14,10 @@
 		
 			echo "<p style='color:red'>".$selected."</p>";
 			shell_exec("sudo lxc-attach testweek5 -- bash /root/upgradeselectedtw5.sh". " " . $selected);
-			shell_exec("sudo lxc-attach testweek5 -- bash /root/runningservices.sh". " " . $selected);
-                        shell_exec("sudo lxc-attach testweek5 -- bash /root/stoppedservices.sh". " " . $selected);
+			shell_exec("sudo lxc-attach testweek5 -- bash /root/runningservices.sh");
+                        shell_exec("sudo lxc-attach testweek5 -- bash /root/stoppedservices.sh");
                         shell_exec("sudo lxc-attach testweek5 -- cat /root/stopedservices.txt | mail -s 'STOPPED SERVICES in Machine TEST' root@SHARESHT.in");					
-			shell_exec("sudo lxc-attach testweek5 -- bash /root/listservices.sh");
+			shell_exec("sudo lxc-attach testweek5 -- bash /root/checkupgradetw5.sh");
 				}		
 		}
 	else{

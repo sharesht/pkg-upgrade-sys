@@ -10,17 +10,17 @@
 			}
 		</style>
 		<h1 id='heading' align='center'>This is MACHINE DB TWO</h1>
-		<h2><a class='fixed' href = "index.html">HOME</a></h2>
+		<h2><a class='fixed' href = "home.html">HOME</a></h2>
 	</head>
 	<body style="background-image:url('bg-img/software-wallpaper-11.jpg')">
-
-                <form action='lxc_DB2.php' method='post'>
+		 <form action='lxc_DB2.php' method='post'>
                         <input type='submit' name='submit1' value='List Upgradable Packages'>
                                 <?php
                                         include("checkupgradeDB2.php");
                                 ?>
                         </br></br>
-                </form>
+		</form>
+
 	<?php
 		$servername = "10.0.3.52:3307";
 		$username = "abcd";
@@ -58,7 +58,10 @@
 							}
 			echo "<input type='submit' name='submit3' value='Upgrade Selected'/></br>";
                         include("upgradeselectedDB2.php");
-                        echo "</br>";
+			echo "</br>";
+			echo "<form action='lxc_DB2.php' method='post'>:";
+                        echo "<input type='submit' name='submit4' value='Upgrade All'>";
+                        include("upgradeallDB2.php");
 			echo "</form>";
 			echo "</table>";
 					}		
@@ -69,12 +72,6 @@
 		}
 		mysqli_close($conn);
 	?>
-		<form action='lxc_DB2.php' method='post'>
-        	        <input type='submit' name='submit4' value='Upgrade All'>
-				<?php
-					include("upgradeallDB2.php");
-				?>		
-		</form>
 	</body>
 </html>
 

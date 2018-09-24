@@ -10,9 +10,9 @@
                         }
                 </style>
                 <h1 id='heading' align='center'>This is MACHINE DB</h1>
-		<h2><a class='fixed' href = "index.html">HOME</a></h2>
+		<h2><a class='fixed' href = "home.html">HOME</a></h2>
 	</head>
-        <div class='buttonHolder'>
+	<body style="background-image:url('bg-img/software-wallpaper-11.jpg')">
                 <form action='lxc_DB.php' method='post'>
                         <input type='submit' name='submit1' value='List Upgradable Packages' style='float:middle'>
                                 <?php
@@ -20,8 +20,7 @@
                                 ?>
                         </br></br>
                 </form>
-        </div>
-        <body style="background-image:url('bg-img/software-wallpaper-11.jpg')">
+
 	<?php
 		$servername = "10.0.3.100:3310";
 		$username = "abcd";
@@ -55,32 +54,25 @@
 			while($row = mysqli_fetch_assoc($result)) {
 				
 				echo "<form action='lxc_DB.php' method='post' name='selected' id ='selected'>";
-				 echo "<tr><td align='Center' style='color:ffe52c'>" . $row["SerialNo"] . "</td><td align='Center' style='color:ffe52c'>" . $row["PackageName"] . "</td><td align='Center' style='color:ffe52c'>" . $row["CurrentVersion"] . "</td><td align='Center' style='color:ffe52c'>" . $row["AvailableVersion"] . "</td><td align='Center' style='color:ffe52c'>" . "<input type='checkbox' name='Pkg_Names[]' value=" .$row["PackageName"]. ">" . "</td></tr></br>";
+				echo "<tr><td align='Center' style='color:ffe52c'>" . $row["SerialNo"] . "</td><td align='Center' style='color:ffe52c'>" . $row["PackageName"] . "</td><td align='Center' style='color:ffe52c'>" . $row["CurrentVersion"] . "</td><td align='Center' style='color:ffe52c'>" . $row["AvailableVersion"] . "</td><td align='Center' style='color:ffe52c'>" . "<input type='checkbox' name='Pkg_Names[]' value=" .$row["PackageName"]. ">" . "</td></tr></br>";
 							}
                         echo "<input type='submit' name='submit3' value='Upgrade Selected'/></br>";
                         include("upgradeselected.php");
                         echo "</br>";
-                        echo "</form>";
-			
+                	echo "<form action='lxc_DB.php' method='post' name='all' id='all'>";
+                        echo "<input type='submit' name='submit4' value='Upgrade All'/>";
+                        include("upgradeall.php");
+			echo "</form>";
+			echo "</table>";	
 					}		
 		else {
 			echo "</br>";
-			echo "<h4 align='center'>No Upgrades Available for any Package</h4>";
+			echo "<h4 align='center' style='color:ffe52c'>No Upgrades Available for any Package</h4>";
 			echo "</br>";
 		}
 		mysqli_close($conn);
 	?>
-		</table> 
-		<form action='lxc_DB.php' method='post' name='all' id='all'>
-                       	<input type='submit' name='submit4' value='Upgrade All'/>
-				<?php
-					#shell_exec("sudo lxc-attach DB -- bash /root/upgradeallDB.sh");
-					include("upgradeall.php");
-				?>	
-		</form>
-		<form action='lxc_DBlistservice.php' method='post' name='all' id='all'>
-                        <input type='submit' name='submit5' value='List Running Services'/>
-		</form>
+		</br></br>
 		<h2><a href = "logout.php">Sign Out</a></h2>
 	</body>
 </html>

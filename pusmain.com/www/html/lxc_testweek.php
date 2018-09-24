@@ -10,18 +10,17 @@
                         }
   		</style>
 		<h1 id='heading' align='center'>This is MACHINE TEST</h1>
-		<h2><a class='fixed' href = "index.html">HOME</a></h2>
+		<h2><a class='fixed' href = "home.html">HOME</a></h2>
 	</head>
-	<div class='buttonHolder'>
+	<body style="background-image:url('bg-img/software-wallpaper-11.jpg')">
         	<form action='lxc_testweek.php' method='post'>
         		<input type='submit' name='submit1' value='List Upgradable Packages' style='float:middle'>
         			<?php
         				include("checkupgradetw5.php");
         			?>
         		</br></br>
-        	</form>
-        </div>
-	<body style="background-image:url('bg-img/software-wallpaper-11.jpg')">
+		</form>
+
 	<?php
 		$servername = "10.0.3.47:3305";
 		$username = "tester";
@@ -61,8 +60,10 @@
 			echo "<input type='submit' name='submit3' value='Upgrade Selected'/></br>";
                         include("upgradeselectedtw5.php");
 			echo "</br>";
+			echo "<input type='submit' name='submit4' value='Upgrade All'/>";
+                        include("upgradealltw5.php");	
 			echo "</form>";
-			
+			echo "</table>";
 					}		
 		else {
 			echo "</br>";
@@ -71,16 +72,6 @@
 		}
 		mysqli_close($conn);
 	?>
-		</table>
-		<form action='lxc_testweek.php' method='post' name='all' id='all'>
-                        <input type='submit' name='submit4' value='Upgrade All'/>
-                                <?php
-                                        include("upgradealltw5.php");
-                                ?>
-                </form>
-		<form action='lxc_tw5listservice.php' method='post' name='all' id='all'>
-                        <input type='submit' name='submit5' value='List Running Services'/>
-		</form>
 		<h2><a href = "logout.php">Sign Out</a></h2>
 	</body>
 </html>
