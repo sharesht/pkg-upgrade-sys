@@ -16,7 +16,8 @@
 			shell_exec("sudo lxc-attach DB2 -- bash /root/upgradeselectedDB2.sh". " " . $selected);
 			shell_exec("sudo lxc-attach DB2 -- bash /root/runningservices.sh". " " . $selected);  
                         shell_exec("sudo lxc-attach DB2 -- bash /root/stoppedservices.sh". " " . $selected);
-			shell_exec("sudo lxc-attach DB2 -- cat /root/stopedservices.txt | mail -s "STOPPED SERVICES" root@SHARESHT.in");
+			shell_exec("sudo lxc-attach DB2 -- cat /root/stopedservices.txt | mail -s 'STOPPED SERVICES in Machine DB2' root@SHARESHT.in");
+			shell_exec("sudo lxc-attach DB2 -- bash /root/listservices.sh");
 			}
 		}
 	else{

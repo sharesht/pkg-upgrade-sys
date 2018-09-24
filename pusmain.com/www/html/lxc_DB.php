@@ -80,7 +80,8 @@
 		</form>
 		<form action='lxc_DBlistservice.php' method='post' name='all' id='all'>
                         <input type='submit' name='submit5' value='List Running Services'/>
-                </form>
+		</form>
+		<h2><a href = "logout.php">Sign Out</a></h2>
 	</body>
 </html>
 

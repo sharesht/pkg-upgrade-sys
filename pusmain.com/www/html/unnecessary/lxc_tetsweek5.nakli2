@@ -1,0 +1,85 @@
+<?php
+	#include("index.html");
+	echo "This is MACHINE testweek5";
+?>
+
+
+
+<html>
+<body>
+
+
+<table border="1">
+
+<tr>
+
+<th>SerialNo</th>
+<th>PackageName</th>
+<th>CurrentVersion</th>
+<th>AvailableVersion</th>
+<th>Selections</th>
+
+</tr>
+
+
+
+
+<?php
+
+$servername = "10.0.3.47:3305";
+$username = "tester";
+$password = "Sharesht@2";
+$dbname = "packages";
+
+// Create connection
+
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT * FROM packages.updates";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+	// output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+	#echo $row["SerialNo"]. "  " . $row["PackageName"]. "  " . $row["CurrentVersion"]. "  " . $row["AvailableVersion"]. "<br>";
+	#echo $row["SerialNo"]." ".$row["PackageName"]." ".$row["CurrentVersion"]." ".$row["AvailableVersion"]. "<input type='checkbox' value='<{$row["AvailableVersion"]}'>" . "</br>";
+	#echo "<tr><td>" . $row["SerialNo"] . "</td><td>" . $row["PackageName"] . "</td><td>" . $row["CurrentVersion"] . "</td><td>" . $row["AvailableVersion"] . "</td><td>" . "<input type='checkbox' name='Active' value=<'{$row["PackageName"]}'>" . "</td></tr></br>";
+
+
+	    echo "<tr><td>" . $row["SerialNo"] . "</td><td>" . $row["PackageName"] . "</td><td>" . $row["CurrentVersion"] . "</td><td>" . $row["AvailableVersion"] . "</td><td>" . "<input type='checkbox' name='Active' value=<'1'>" . "</td></tr></br>";
+	    $active = isset($_POST['Active']) && $_POST['Active']  ? "1" : "0";
+	    }
+	echo "</table";
+}
+
+else {
+    echo "No Upgrades Available for any Packages";
+}
+
+mysqli_close($conn);
+?>
+
+
+
+<form action="/var/www/pusmain.com/upgradeallpkgs.sh>">
+    <input type="submit" value="UPGRADE ALL">
+</form>
+
+
+
+
+<form action="/var/www/pusmain.com/selectedpkgsupgrd.sh">
+    <input type="submit" value="UPDRADE SELECTED">
+</form>
+
+
+
+
+</body>
+</html>
+

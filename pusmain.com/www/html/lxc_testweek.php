@@ -72,11 +72,6 @@
 		mysqli_close($conn);
 	?>
 		</table>
-		<style>
-			buttonHolder{
-				text-align= center;
-			}
-		</style>
 		<form action='lxc_testweek.php' method='post' name='all' id='all'>
                         <input type='submit' name='submit4' value='Upgrade All'/>
                                 <?php
@@ -85,7 +80,8 @@
                 </form>
 		<form action='lxc_tw5listservice.php' method='post' name='all' id='all'>
                         <input type='submit' name='submit5' value='List Running Services'/>
-                </form>
+		</form>
+		<h2><a href = "logout.php">Sign Out</a></h2>
 	</body>
 </html>
 
